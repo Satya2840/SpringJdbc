@@ -19,8 +19,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	@Autowired
-	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
 
 	@Override
 	public List<Employee> findAllEmployees() {
