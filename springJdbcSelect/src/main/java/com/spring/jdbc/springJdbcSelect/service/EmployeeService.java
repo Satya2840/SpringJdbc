@@ -26,9 +26,11 @@ public class EmployeeService {
 		
 	}
 	
-	public void findByid(Integer id) {
-		Employee emp = empDao.findByEmpId(id);
-		System.out.println(emp);
+	public void findByid() {
+		Employee emp = new Employee();
+		emp.setEmpid(3);
+		List<Employee> emp1 = empDao.findByEmpId(emp);
+		System.out.println(emp1);
 	}
 
 	

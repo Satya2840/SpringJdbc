@@ -16,9 +16,9 @@ public class App {
 
 		EmployeeService service = context.getBean("employeeService", EmployeeService.class);
 
-		service.fetchAllEmployees();
+		//service.fetchAllEmployees();
 		
-		service.findByid(2);
+		service.findByid();
 		
 		
 	}

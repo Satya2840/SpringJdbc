@@ -19,8 +19,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-
-
+	@Autowired
+	private NamedParameterJdbcTemplate template;
+	
 	@Override
 	public List<Employee> findAllEmployees() {
 		String query = "Select * from Employee";
@@ -31,9 +32,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 
 	@Override
-	public Employee findByEmpId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Employee> findByEmpId(Employee emp) {
+		
+		String sql = "select * from employee where empid=:id";
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("id", emp.getEmpid());
+		return template.query(sql, map, new EmployeeRowMapper());
+		
 	}
 
 }
